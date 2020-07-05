@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆瓣—搜索</title>
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+<body>
+<div class="search-container">
+    <div class="hd">
+        <div class="search-input-wrapper">
+
+            <i class="icon-search"><svg width="10px" height="10px" viewBox="0 0 16 16" class="bi bi-search"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                <path fill-rule="evenodd"
+                      d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+            </svg></i>
+            <input type="text" id="search" class="search" placeholder="艺术家 / 单曲 / 风格 / 场景">
+            <a  id="icon-x" class="icon-x"><svg width="10px" height="10px" viewBox="0 0 16 16"
+                                                              class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+            </svg></a>
+            <a class="cancel" href="#back">取消</a>
+        </div>
+
+    </div>
+    <div class="result">
+        <ul id="song-list" class="result-list">
+
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    let input = document.getElementById("search");
+    let x = document.getElementById("icon-x");
+    let ul = document.getElementById("song-list");
+    function createli(songs){
+        ul.innerHTML='';
+        console.log(songs.empty);
+        if (songs.empty){
+            ul.innerHTML=`<p>没有找到！</p>`;
+        } ;
+        for (const song of songs.content) {
+            const li = document.createElement("li");
+            li.innerHTML=`
+        <div class="songbox">
+                   <img class="avator" src="${song.cover}" alt="">
+                   <p>${song.name}</p>
+               </$>
+        `;
+            ul.appendChild(li);
+        }
+
+    }
+
+    function show(e) {
+        const value = e.target.value;
+        if (value === null || value === "") {
+            ul.innerHTML="";
+            x.style.display = "none";
+        } else {
+            fetch("/searchContent?keyword="+value).then(function(response){
+                return response.json();
+            }).then(function(data){
+                createli(data.songs);
+            });
+            x.style.display = "inline-block";
+        }
+
+    }
+
+    input.addEventListener("input", show);
+
+    function clear() {
+        input.value="";
+        x.style.display="none";
+        ul.innerHTML=""
+    }
+    x.addEventListener("click",clear);
+</script>
+
+</html>

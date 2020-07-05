@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="never">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/player.css">
+    <link rel="stylesheet" href="/css/explore.css">
+    <title>豆瓣</title>
+</head>
+
+<body>
+<div style="margin-bottom: 10px" th:replace="player::player"></div>
+<div th:replace="explore::explore"></div>
+<div th:replace="footer::footer"></div>
+</body>
+</html>

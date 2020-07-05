@@ -1,0 +1,28 @@
+
+.footer{
+   position: absolute;
+    width: 100%;
+    top: 2720px;
+    margin: 0 auto;
+    text-align: center;
+}
+.footer p{
+    font-size: 12px;
+    color:#8f8e94;
+}
+.footer a {
+    color:#8f8e94;
+    text-decoration: none;
+    cursor: pointer;
+}
+.footer a:hover{
+  /*  border-bottom: 1px solid;*/
+}
+.main-explore{
+    width: 100%;
+    position: absolute;
+    top: 768px;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+}

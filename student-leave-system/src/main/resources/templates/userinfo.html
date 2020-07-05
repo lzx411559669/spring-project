@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="index">
+<div th:fragment="content">
+
+    <div class="card" style=" width:500px;margin: 100px auto;padding: 20px; ">
+        <div style="margin: 10px auto">
+            <img style=" width: 100px; border-radius: 50%;" src="/images/head.jpg">
+        </div>
+        <div class="card-body" style="text-align: center">
+            <h4 class="card-title" th:text="${userinfo.name}">Card title</h4>
+            <p class="card-text" style="color: lightgray">腹有诗书气自华，读书万卷始通神。</p>
+        </div>
+        <ul class="list-group list-group-flush" style="font-size: 14px;margin: 10px">
+            <li class="list-group-item"><span class="badge badge-success">学  号</span><span
+                    th:text="| ${userinfo.studentId}|"></span></li>
+            <li class="list-group-item"><span class="badge badge-success">性  别</span><span
+                    th:text="| ${userinfo.sex}|"></span></li>
+            <li class="list-group-item"><span class="badge badge-success">班  级</span><span
+                    th:text="| ${userinfo.classs.getGrade()+userinfo.classs.getName()}|"></span></li>
+            <li class="list-group-item"><span class="badge badge-success">电  话</span><span
+                    th:text="| ${userinfo.mobile}|"></span></li>
+        </ul>
+        <div class="card-body">
+            <a href="#" style="width: 100%" class="btn btn-primary card-link" data-toggle="modal"
+               data-target="#exampleModal">编辑资料</a>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">编辑资料</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/modify">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">姓名</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:value="${userinfo.name}" name="name"
+                                           aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon3">电话</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:value="${userinfo.sex}" name="sex"
+                                           aria-describedby="basic-addon4">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2">密码</span>
+                                    </div>
+                                    <input type="password" class="form-control" th:value="${userinfo.password}"
+                                           name="password" aria-describedby="basic-addon2">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon4">电话</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:value="${userinfo.mobile}" name="mobile"
+                                           aria-describedby="basic-addon4">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

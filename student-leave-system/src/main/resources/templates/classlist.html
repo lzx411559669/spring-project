@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="indexter">
+<div th:fragment="content">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link " th:each="class,it:${classlist}" th:id="${it.index}" data-toggle="tab"
+               th:href="@{|#item${it.index}|}"
+               role="tab" th:text="${class.getGrade()+'级'+class.getName()}" aria-selected="true">
+            </a>
+
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent" style="width: 50%;margin: 70px auto">
+        <div class="tab-pane fade " th:each="class,it:${classlist}" th:id="|item${it.index}|" role="tabpanel"
+             aria-labelledby="nav-home-tab">
+            <ul class="list-group " th:each="student:${class.getStudents()}" style="margin-top: 20px">
+                       <!-- <li class="list-group-item" style="text-align: center">
+                            <h4>请假条</h4>
+                        </li>-->
+                        <li class="list-group-item"><span class="badge badge-success">姓名 </span><span
+                                th:text="| ${student.getName()}|"></span></li>
+                        <li class="list-group-item"><span class="badge badge-success">学号 </span><span
+                                th:text="| ${student.getStudentId()}|"></span></li>
+                        <li class="list-group-item"><span class="badge badge-success">性别 </span><span
+                                th:text="| ${student.getSex()}|"></span></li>
+                        <li class="list-group-item"><span class="badge badge-success">电话 </span><span
+                                th:text="| ${student.getMobile()}|"></span></li>
+
+                       <!-- <li class="list-group-item" style="display: flex;">
+                            <button type="button" style="height: 48px;margin-right: 10px" th:onclick="|javascript:approve(${vacation.id})|" class="btn btn-outline-success btn-lg btn-block">批   准</button>
+                            <button type="button" style="height: 48px;margin: 0" th:onclick="|javascript:notapprove(${vacation.id})|" class="btn btn-outline-danger btn-lg btn-block">不  批</button>
+                        </li>-->
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</html>

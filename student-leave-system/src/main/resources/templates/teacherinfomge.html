@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="admin">
+<div th:fragment="content">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">所有老师</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">添加老师</a>
+    </li>
+
+</ul>
+<div class="tab-content" id="myTabContent" style="margin-top: 30px">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <table class="table ">
+            <thead>
+            <tr class="table-danger">
+                <th>序号</th>
+                <th>姓名</th>
+                <th>职工号</th>
+                <th>所带班级</th>
+                <th>电话</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="teacher,it:${teacherlist}" class="table-primary" >
+                <td th:text="${it.count}">John</td>
+                <td th:text="${teacher.getName()}">John</td>
+                <td th:text="${teacher.getTeacherId()}">Doe</td>
+                <td>
+                    <span th:each="class:${teacher.getClasssList()}" th:text="|${class.getGrade()+class.getName()}/|"></span>
+                </td>
+                <td th:text="${teacher.getMobile()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="card" style="width: 600px;margin: 0 auto">
+            <div class="card-body">
+                <h3>添加老师</h3>
+                <form action="/addteacher" method="post">
+                    <input type="text" class="form-control" name="teacherId" placeholder="请输入职工号">
+                    <br>
+                    <input type="text" class="form-control" name="name" placeholder="请输入姓名">
+                    <br>
+                    <input type="text" class="form-control" name="password" placeholder="密码">
+                    <br>
+                    <input type="text" class="form-control" name="mobile" placeholder="电话">
+                    <br>
+                    <select class="form-control" name="sex" id="Select1">
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
+                    <br>
+                    <select class="form-control" name="grade" id="Select2" placeholder="所带年级">
+                        <option selected>选择年级</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                    </select>
+                    <br>
+                    <select class="form-control" name="classsname" id="Select3">
+                        <option selected>选择所带专业</option>
+                        <option>计算机科学与技术</option>
+                        <option>电子通信工程</option>
+                        <option>软件工程</option>
+                        <option>大数据</option>
+                        <option>人工智能</option>
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+</html>

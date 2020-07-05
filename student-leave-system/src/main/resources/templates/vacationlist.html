@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="index">
+<div th:fragment="content">
+    <div class="accordion" id="accordionExample" style="width: 70%;margin: 50px auto 0px">
+        <div class="card" th:each="vacation,it:${vacationlist}" style="margin-top: 20px">
+            <div style="display: flex;" class="card-header" th:id="|headingOne${it.index}|">
+                    <svg class="bi bi-caret-down-fill"style="margin-top: 10px" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                    <button th:text="|假条${it.count+' 时间 : '+vacation.getBeginTime()+'——'+vacation.getEndTime()}|" class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" th:data-target="|#collapseOne${it.index}|" aria-expanded="true" aria-controls="collapseOne">
+                    </button>
+                <div class="info">
+                    <span class="badge badge-success"th:if="${vacation.approval==true}" >已批</span>
+                    <span class="badge badge-danger"th:if="${vacation.approval==false}" >未批/未处理</span>
+                    <span class="badge badge-info" th:if="${vacation.isRemark()==true}">已逾期</span>
+                </div>
+
+            </div>
+
+            <div th:id="|collapseOne${it.index}|" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5>请假原由</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" th:text="${vacation.getReason()}"></p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button type="button" th:onclick="|javascript:del(${vacation.id})|" class="btn btn-outline-success btn-lg btn-sm">删除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

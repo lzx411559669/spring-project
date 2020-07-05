@@ -1,0 +1,206 @@
+header a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #8f8e94;
+}
+
+span {
+  font-size: 12px;
+  color: #8f8e94;
+}
+
+header {
+  position: relative;
+}
+
+header .inner {
+  display: flex;
+  margin: auto 23%;
+  padding-top: 25px;
+}
+
+header .inner .nav-logo {
+  z-index: 1000;
+  margin-right: 40px;
+}
+
+header .inner .nav-logo .img {
+  width: 100px;
+  height: 40px;
+  background: url(../images/doubanlogo.png) no-repeat center;
+  background-size: contain;
+}
+
+header .inner .player-wrapper {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+  height: 768px;
+  width: 100%;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+header .inner .player-wrapper .bg {
+  background-color: rgba(250, 250, 250, 0.93);
+  position: static;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+header .inner .player-wrapper .bg .left {
+  transform: scale(1);
+  opacity: 1;
+  top: 50%;
+  margin-top: -70px;
+  position: absolute;
+  left: 50%;
+  margin-left: -475px;
+  width: 200px;
+  height: 200px;
+}
+
+header .inner .player-wrapper .bg .left .jBvxsI {
+  width: 128px;
+  text-align: center;
+}
+
+header .inner .player-wrapper .bg .left .jBvxsI .eYjegs {
+  color: #9b9b9b;
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+}
+
+header .inner .player-wrapper .bg .right {
+  width: 240px;
+  height: 240px;
+  top: 50%;
+  margin-top: -90px;
+  position: absolute;
+  left: 50%;
+  margin-left: 255px;
+  transform: scale(1);
+  opacity: 1;
+}
+
+header .inner .player-wrapper .bg .right .playing-cover {
+  width: 240px;
+  height: 240px;
+  cursor: pointer;
+}
+
+header .inner .player-wrapper .bg .right .playing-cover:hover::before {
+  display: block;
+}
+
+header .inner .player-wrapper .bg .right .playing-cover .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  opacity: 1;
+  border-radius: 50%;
+  background-size: cover;
+ /* background-image: url(https://img3.doubanio.com/view/subject/m/public/s27257511.jpg&quot;);*/
+}
+
+header .inner .player-wrapper .bg .right .playing-cover .hover-tip {
+  width: 90px;
+  display: none;
+  position: absolute;
+  text-align: center;
+  line-height: 20px;
+  height: 20px;
+  font-size: 12px;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -45px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 1px;
+}
+
+header .inner .player-wrapper .bg .right .playing-cover .hover-tip:hover::before {
+  display: block;
+}
+
+header .inner .player-wrapper .tips {
+  position: absolute;
+  top: 50%;
+  margin-top: 180px;
+  left: 50%;
+  margin-left: -220px;
+}
+
+header .inner .player-wrapper .tips div {
+  height: 36px;
+  line-height: 36px;
+  border-radius: 2px;
+  background-color: #e7e7e7;
+  display: inline-block;
+  padding: 0px 12px;
+  color: #4a4a4a;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+header .inner .player-wrapper .tips div a {
+  color: #2f9842;
+}
+
+.feedback {
+  z-index: 1000;
+  display: flex;
+  margin-right: 25%;
+}
+
+.login-register {
+  z-index: 1000;
+  position: absolute;
+  top: 40px;
+  right: 25%;
+}
+
+.explore-title {
+  width: 100%;
+  height: 100px;
+}
+
+.explore-title .section-header {
+  padding-top: 38px;
+  padding-bottom: 39px;
+}
+
+.explore-title .section-header .chanels {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.explore-title .section-header .chanels li {
+  width: auto;
+  margin-right: 40px;
+  margin-left: 40px;
+  list-style: none;
+}
+
+.explore-title .section-header .chanels li a {
+  line-height: 22px;
+  height: 22px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #8f8e94;
+}
+
+.explore-title .section-header .chanels li a:hover {
+  color: #75747b;
+}

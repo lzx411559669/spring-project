@@ -1,0 +1,194 @@
+li {
+    list-style: none;
+}
+
+.wapper {
+    width: 660px;
+    margin: 40px auto;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    position: relative;
+}
+
+.wapper .artist-pager {
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.wapper .artist-pager .banner {
+    background-size: cover;
+    width: 660px;
+    height: 220px;
+    position: relative;
+    position: relative;
+}
+
+.wapper .artist-pager .banner .top {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.wapper .artist-pager .banner .top a {
+    margin-left: 20px;
+    font-size: 12px;
+    color: #9b9b9b;
+    line-height: 17px;
+    text-decoration: none;
+}
+
+.wapper .artist-pager .banner .cover {
+    text-align: center;
+    height: 168px;
+    width: 168px;
+    background: url(https://img1.doubanio.com/img/fmadmin/large/31458.jpg) center no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    margin-left: -84px;
+}
+
+.wapper .artist-pager .inner {
+    margin: 0 100px;
+}
+
+.wapper .artist-pager .inner h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #393939;
+}
+
+.wapper .artist-pager .inner .styles {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #9b9b9b;
+    line-height: 18px;
+}
+
+.wapper .artist-pager .inner .age {
+    text-align: center;
+    font-size: 12px;
+    color: #9b9b9b;
+    margin-top: 20px;
+}
+
+.wapper .artist-pager .inner .actions {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.wapper .artist-pager .inner .actions button {
+    display: inline-block;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    text-align: center;
+    text-decoration: none;
+    text-rendering: auto;
+    letter-spacing: -.02em;
+    font-size: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.wapper .artist-pager .inner .related-block {
+    border-top: 1px solid #eaeaea;
+    padding-top: 30px;
+}
+
+.wapper .artist-pager .inner .related-block a {
+    color: #45a156;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.wapper .artist-pager .inner .related-block .artist-list {
+    font-size: 13px;
+    color: #4a4a4a;
+    list-style: none;
+    text-align: left;
+    padding: 27px 0;
+    margin: 0;
+}
+
+.wapper .artist-pager .inner .related-block .artist-list li {
+    color: #4a4a4a;
+    line-height: 18px;
+    height: 18px;
+    margin-bottom: 15px;
+}
+
+.wapper .artist-pager .inner .related-block .artist-list li .cover {
+    height: 18px;
+    width: 18px;
+    background: url(https://img9.doubanio.com/view/subject/m/public/s2374495.jpg) no-repeat center;
+    border-radius: 0px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+    background-size: cover;
+}
+
+.wapper .artist-pager .inner .related-block .artist-list li .more-link {
+    font-size: 12px;
+    color: #9b9b9b;
+    text-decoration: none;
+}
+
+.wapper .artist-pager .inner .related-block .artist-list li span {
+    color: #4a4a4a;
+}
+
+.wapper .artist-pager .inner .related-block p {
+    font-size: 12px;
+    color: #9b9b9b;
+    margin-top: 20px;
+}
+
+.wapper .artist-pager .inner .related-block .similar-artists {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wapper .artist-pager .inner .related-block .similar-artists li {
+    display: block;
+    box-sizing: border-box;
+    margin-right: 2%;
+    width: 23%;
+    margin-top: 30px;
+}
+
+.wapper .artist-pager .inner .related-block .similar-artists li .cover {
+    height: 78px;
+    width: 78px;
+    background: url(https://img3.doubanio.com/img/fmadmin/large/31901.jpg) no-repeat center;
+    border-radius: 50%;
+    display: inline-block;
+    background-size: contain;
+}
+
+.wapper .artist-pager .inner .related-block .similar-artists li h3 {
+    width: 78px;
+    margin: 0;
+    font-size: 13px;
+    color: #4a4a4a;
+    line-height: 18px;
+    font-weight: 400;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

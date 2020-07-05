@@ -1,0 +1,116 @@
+.outer {
+    width: 860px;
+    height: 722px;
+    margin-top: -361px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -430px;
+    text-align: center;
+    background: #fdfdfd;
+    border: 1px solid #f1f1f1;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.outer .login {
+    text-align: right;
+    margin: 25px 25px 38px 0;
+}
+
+.outer .login a {
+    font-size: 13px;
+    color: #2f9842;
+    text-decoration: none;
+}
+
+.outer .app-title {
+    line-height: 36px;
+    font-size: 28px;
+    color: #4a4a4a;
+    margin-bottom: 13px;
+    font-weight: 300;
+}
+
+.outer .singerlist {
+    box-sizing: border-box;
+    width: 900px;
+    padding: 0 80px;
+}
+
+.outer .singerlist .singer {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-right: 40px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.outer .singerlist .cover {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: url(https://img3.doubanio.com/img/fmadmin/small/31363.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.outer .singerlist .singername {
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #030303;
+    width: 100px;
+    overflow: hidden;
+    cursor: default;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outer .singerlist a {
+    height: 24px;
+    line-height: 24px;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 44, 86, 0.3);
+    padding: 0 10px;
+    font-size: 12px;
+    color: #ff2c56;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.outer .search {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.outer .search a {
+    height: 18px;
+    line-height: 18px;
+    font-size: 13px;
+    color: #62646c;
+    text-decoration: none;
+}
+
+.outer .choice {
+    position: relative;
+    top: 0px;
+    transition: all 0.3s ease-out 0.5s;
+    z-index: 10000;
+}
+
+.outer .choice .dump {
+    margin-top: 20px;
+}
+
+.outer .choice .dump p {
+    padding-top: 20px;
+    margin: 0;
+}
+
+.outer .choice .dump p a {
+    font-size: 13px;
+    color: #8f8e94;
+    text-decoration: none;
+}

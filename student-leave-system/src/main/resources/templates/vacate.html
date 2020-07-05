@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="index">
+
+<div th:fragment="content">
+    <div class="card text-center" style="width: 700px;margin: 50px auto">
+        <form action="/addVacation" enctype="multipart/form-data" method="post">
+            <div class="card-header">
+                <div class="spinner-grow text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                请填写假条申请
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">请假类型</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01" name="type">
+                        <option selected>Choose...</option>
+                        <option value="事假">事假</option>
+                        <option value="病假">病假</option>
+                        <option value="丧假">丧假</option>
+                        <option value="婚假">婚假</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">相关原由</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="请假原因" name="reason"
+                           aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon">备注说明</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="其他备注" name="info"
+                           aria-describedby="basic-addon">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2">起始时间</span>
+                    </div>
+                    <input type="date" class="form-control" name="beginTime">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">截止时间</span>
+                    </div>
+                    <input type="date" class="form-control" name="endTime">
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary btn-block">提交申请</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</html>
