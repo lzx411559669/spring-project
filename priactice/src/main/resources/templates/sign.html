@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆瓣-登录注册</title>
+    <link rel="stylesheet" href="../css/sign.css">
+</head>
+
+<body>
+<div class="back">
+    <svg width="15px" height="15px" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+    </svg>
+    <a href="">返回</a>
+</div>
+
+<div class="login-register">
+    <div class="wapper">
+        <div class="switch" id="switch">
+            <button>密码登录</button>
+            <button>注册</button>
+        </div>
+        <ul class="box" id="box">
+            <li class="show">
+                <form  action="/app/authenticate" method="post">
+                    <div class="login-error">
+                        <svg width="11px"  height="11px" viewBox="0 0 16 16" class="bi bi-dash-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path fill-rule="evenodd" d="M3.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        <span>账号密码错误</span>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="请输入用户名">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="请输入密码">
+                    </div>
+
+                    <div>
+                        <button class="b-login" type="submit">登录豆瓣</button>
+                    </div>
+                    <div class="checkbox">
+                        <input class="checkbox" type="checkbox">
+                        <span> 下次自动登录</span>
+                    </div>
+                </form>
+            </li>
+            <li class="regi" >
+                <form action="/app/register" method="post">
+                    <div>
+                        <input type="text" name="name" placeholder="请输入用户名">
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="请输入密码">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="确认密码">
+                    </div>
+                    <div>
+                        <input type="password" name="mobile" placeholder="手机号">
+                    </div>
+                    <div>
+                        <button type="submit">注册豆瓣</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    //注册登录窗口切换
+    let buttonList = document.getElementById("switch").children;
+    let box = document.getElementById("box").children;
+    for (let index = 0; index < buttonList.length; index++) {
+        buttonList[index].addEventListener("click", function () {
+            // if(box[i].className!=="show"){
+            //     box[i].className = "show";
+            // }else{
+            //     box[i].className = "regi";
+            // }
+            for (let i = 0; i < buttonList.length; i++) {
+                buttonList[i].removeAttribute("class");
+                box[i].removeAttribute('class');
+            }
+            this.className = "current-button";
+            box[index].className = "show";
+        });
+
+    }
+    //表单不为空提示
+    function validatedNull(e){
+        let value = e.target.value;
+        if(value.trim()===null||value.trim()===""){
+            e.target.style.borderColor= "red";
+        }else{
+            e.target.style.borderColor= "#E2E2E2";
+        }
+    }
+    let inputdom = document.querySelectorAll("input");
+    //事件监听
+    inputdom.forEach(element => {
+        element.addEventListener('blur',validatedNull);
+    });
+
+
+</script>
+
+</html>
