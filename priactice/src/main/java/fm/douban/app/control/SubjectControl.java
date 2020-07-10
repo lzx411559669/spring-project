@@ -6,6 +6,7 @@ import fm.douban.model.Subject;
 import fm.douban.service.SingerService;
 import fm.douban.service.SongService;
 import fm.douban.service.SubjectService;
+import fm.douban.util.SubjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,7 @@ public class SubjectControl {
     private SongService songService;
     @Autowired
     private SubjectService subjectService;
+    //艺术家详情
     @GetMapping("/artist")
     public String mhzDetail(Model model, @RequestParam("subjectId") String subjectId) {
         //主题实例
@@ -61,4 +63,48 @@ public class SubjectControl {
 
         return "mhzdetail";
     }
+    //歌单列表
+    @GetMapping("/collection")
+    public String collection(Model model){
+        List<Subject> collections = subjectService.getSubjects(SubjectUtil.TYPE_COLLECTION);
+        List<Singer> creators = new ArrayList<>();
+        collections.forEach(subject -> {
+            Singer singer = singerService.get(subject.getMaster()) ;
+            if (!creators.contains(singer)){
+                creators.add(singer);
+            }
+
+        });
+        model.addAttribute("collections",collections);
+        model.addAttribute("collectionsCreator",creators);
+        collections.forEach(subject -> {
+            System.out.println(subject.getName());
+        });
+        creators.forEach(singer -> {
+            System.out.println(singer.getName());
+        });
+
+        return "collection";
+    }
+
+    //歌单详情
+    @GetMapping("/collectiondetail")
+    public String collectionDetail(Model model,@RequestParam(name = "subjectId")String subjectId){
+         Subject subject = null;
+         subject = subjectService.get(subjectId);
+         Singer singer = null;
+         singer = singerService.get(subject.getMaster());
+         List<Song> songs = null;
+         songs = songService.getAll();
+         Subject otherSubject = null;
+         otherSubject = subjectService.get(subjectId);
+         model.addAttribute("subject",subject);
+         model.addAttribute("singer",singer);
+         model.addAttribute("songs",songs);
+         model.addAttribute("otherSubject",otherSubject);
+        return "collectiondetail";
+    }
+
+
 }
+

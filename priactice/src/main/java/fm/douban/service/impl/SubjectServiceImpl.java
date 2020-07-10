@@ -83,4 +83,15 @@ public class SubjectServiceImpl implements SubjectService {
         DeleteResult result = mongoTemplate.remove(subject);
         return result != null && result.getDeletedCount() > 0;
     }
+
+    @Override
+    public List<Subject> getSubjects(Subject subjectParam) {
+        if (subjectParam ==null ){
+            LOG.error("input subjectParam is not correct");
+            return null;
+        }
+        String type = subjectParam.getSubjectType();
+        String subType = subjectParam.getSubjectSubType();
+       return getSubjects(type,subType);
+    }
 }

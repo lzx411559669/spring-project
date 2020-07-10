@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆瓣歌单</title>
+    <link rel="stylesheet" href="/css/collectiondetail.css">
+    <meta name="referrer" content="never">
+</head>
+
+<body>
+<div th:fragment="colleciondetail">
+<div class="collectiondetail">
+    <main class="main">
+        <header>
+            <div class="infos">
+                <div class="avator">
+                    <img th:src="@{${subject.getCover()}}" alt="">
+                    <div class="palyer">
+
+                    </div>
+                </div>
+                <div class="title">
+                    <span th:text="${subject.getName()}"></span>
+
+                    <p th:text="|${singer.getName()}创建50首歌曲 2015-09-10|">豆瓣FM</p>
+                </div>
+
+
+            </div>
+            <a href=""><div class="share">
+
+            </div></a>
+
+
+        </header>
+        <div class="songlist">
+            <ol class="bar">
+                <li><a href="">歌曲列表(50)</a></li>
+                <li><a href="">豆瓣FM的其他歌单(3)</a></li>
+            </ol>
+            <div class="line">
+
+            </div>
+            <ol class="songs" th:each="song,it:${songs}">
+                <li ><span class="cover" th:style="'background-image:url('+${song.getCover()}+')'"></span><span th:text="${it.count}+'.'+${song.getName()}"></span></li>
+            </ol>
+        </div>
+    </main>
+</div>
+</div>
+
+</body>
+
+</html>

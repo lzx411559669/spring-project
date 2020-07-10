@@ -1,0 +1,156 @@
+@charset "UTF-8";
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 12px;
+    line-height: 23px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 浏览器都有自己的默认样式，以上部分为清除浏览器默认样式 */
+.collectiondetail .main {
+    margin: 100px auto 0;
+    width: 786px;
+    height: 788px;
+    background: #FFFFFF;
+    border: 1px solid #E4E4E4;
+    box-sizing: border-box;
+    padding-top: 14px;
+    padding-left: 40px;
+}
+
+.collectiondetail .main header {
+    position: relative;
+}
+
+.collectiondetail .main header .infos {
+    display: flex;
+}
+
+.collectiondetail .main header .infos .avator {
+    position: relative;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 280px;
+    height: 280px;
+}
+
+.collectiondetail .main header .infos .avator img {
+    position: relative;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.collectiondetail .main header .infos .avator .palyer {
+    position: absolute;
+    top: 182px;
+    right: 50px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(./images/paly.png) center;
+    background-size: contain;
+}
+
+.collectiondetail .main header .infos .avator .palyer::after {
+    position: absolute;
+    content: "";
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 17px;
+    display: block;
+    background: url(./images/play2.png) no-repeat center;
+    background-size: contain;
+}
+
+.collectiondetail .main header .infos .title {
+    margin-top: 41px;
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.collectiondetail .main header .infos .title p {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #ADADAD;
+}
+
+.collectiondetail .main header .share {
+    width: 12px;
+    height: 14px;
+    right: 78px;
+    top: 159px;
+    position: absolute;
+    background: url(./images/share.png) center;
+    background-size: contain;
+}
+
+.collectiondetail .main .songlist .bar {
+    width: 586px;
+    display: flex;
+    color: #000;
+}
+
+.collectiondetail .main .songlist .bar li:last-child {
+    margin-left: 30px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+.collectiondetail .main .songlist .line {
+    height: 1px;
+    margin-left: 40px;
+    background: #EAEAEA;
+    width: 586px;
+}
+
+.collectiondetail .main .songlist .songs {
+    margin-top: 31px;
+}
+
+.collectiondetail .main .songlist .songs .cover {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(./images/songer.png) no-repeat center;
+    background-size: contain;
+    margin-right: 10px;
+}
+
+.collectiondetail .main .songlist .songs li {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+    line-height: 20px;
+}

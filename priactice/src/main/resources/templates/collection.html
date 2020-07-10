@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title> - 豆瓣FM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/collection.css">
+</head>
+<body>
+<div th:fragment="collection">
+    <div class="collections">
+        <div class="items">
+            <li class="explore-songlist" th:each="collection:${collections}">
+                <div class="cover-box">
+                    <div class="cover" th:style="'background-image:url('+${collection.getCover()}+');'">
+                    </div>
+                    <div class="overlay">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="content">
+                    <a th:href="@{'/collectiondetail?subjectId='+${collection.getId()}}">
+                    <h3 th:text="${collection.getName()}">放轻松，难熬的日子总会过去的。</h3></a>
+                    <p>锅炉不是锅&nbsp;创建</p>
+                    <ul>
+                        <li class="sample-songs">
+                            I Knew I Loved You - Savage Garden
+                        </li>
+                    </ul>
+                    <p class="extra-info">
+                        曲目&nbsp;12&nbsp;收藏&nbsp;300
+                    </p>
+
+                </div>
+           <!-- </li>
+            <li class="explore-songlist">
+                <div class="cover-box">
+                    <div class="cover">
+                    </div>
+                    <div class="overlay">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>放轻松，难熬的日子总会过去的。</h3>
+                    <p>锅炉不是锅&nbsp;创建</p>
+                    <ul>
+                        <li class="sample-songs">
+                            I Knew I Loved You - Savage Garden
+                        </li>
+                    </ul>
+                    <p class="extra-info">
+                        曲目&nbsp;12&nbsp;收藏&nbsp;300
+                    </p>
+
+                </div>
+            </li>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

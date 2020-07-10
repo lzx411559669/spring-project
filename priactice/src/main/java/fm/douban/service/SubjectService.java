@@ -15,4 +15,6 @@ public interface SubjectService {
     List<Subject> getSubjects(String type, String subType);
     //删除一个主题
     boolean delete(String subjectId);
+
+    List<Subject> getSubjects(Subject subjectParam);
 }
