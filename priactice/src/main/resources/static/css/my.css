@@ -1,0 +1,231 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.minepage {
+    width: 1024px;
+    display: block;
+    margin: 100px auto;
+}
+
+.minepage .section-switcher .section-header {
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.minepage .section-switcher .section-header .container {
+    display: block;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.minepage .section-switcher .section-header .container li {
+    width: auto;
+}
+
+.minepage .section-switcher .section-header .container li a {
+    font-size: 13px;
+    color: #9b9b9b;
+    line-height: 18px;
+}
+
+.minepage .section-switcher .section-header .container li a :first-child {
+    color: #45a156;
+}
+
+.minepage .section-content {
+    padding-top: 30px;
+    background: #fff;
+}
+
+.minepage .section-content .page-heart {
+    width: 600px;
+    padding-bottom: 100px;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.minepage .section-content .page-heart .header-cover {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
+    display: inline-block;
+    width: 100%;
+    line-height: 36px;
+    font-size: 13px;
+    color: #9b9b9b;
+    align-items: center;
+}
+
+.minepage .section-content .page-heart .header-cover button {
+    float: left;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0;
+    background: #ff2c56;
+    border: 0;
+    color: #fff;
+    margin-right: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+.minepage .section-content .page-heart .header-cover button svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.minepage .section-content .page-heart .header-cover .num {
+    display: inline-block;
+    float: left;
+}
+
+.minepage .section-content .page-heart .header-cover .fr {
+    float: right;
+}
+
+.minepage .section-content .page-heart .header-cover .fr .bZDQzH {
+    position: relative;
+}
+
+.minepage .section-content .page-heart .header-cover .fr .bZDQzH .isWlzM {
+    padding: 30px;
+    box-shadow: 0 2px 4px 0 rgba(77, 77, 77, 0.2);
+    background: white;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: 10000;
+    display: none;
+}
+
+.minepage .section-content .page-heart .header-cover .fr .bZDQzH .isWlzM .jBvxsI {
+    text-align: center;
+}
+
+.minepage .section-content .page-heart .header-cover .fr .bZDQzH .jNcLzX {
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    color: #6bbd7a;
+    cursor: pointer;
+}
+
+.minepage .section-content .page-heart .song-container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.minepage .section-content .page-heart .song-container .songlist {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top {
+    position: relative;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top div {
+    display: inline-block;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .index {
+    left: -58px;
+    width: 40px;
+    text-align: right;
+    position: absolute;
+    font-size: 12px;
+    font-style: normal;
+    color: #c6c6c6;
+    line-height: 36px;
+    z-index: 100;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .cover {
+    height: 36px;
+    width: 36px;
+    background-image: url(https://img3.doubanio.com/view/subject/m/public/s27234852.jpg);
+    border-radius: 0px;
+    display: inline-block;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .titles {
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .titles h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: #4a4a4a;
+    line-height: 21px;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .titles h3 span {
+    font-weight: 400;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .titles p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #c6c6c6;
+    line-height: 15px;
+    text-decoration: none;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .actions {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: inline-block;
+    display: none;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .actions .like {
+    margin-top: -3px;
+}
+
+.minepage .section-content .page-heart .song-container .songlist .top .actions a {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    height: 36px;
+    line-height: 36px;
+}

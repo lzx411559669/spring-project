@@ -24,7 +24,7 @@
                 <a href="#">注册</a>
             </div>
             <div class="player-wrapper">
-                <div class="bg">
+                <div id="bg" class="bg">
                     <div class="left">
                         <div class="jBvxsI"><img width="90" height="90"
                                                  src="https://img3.doubanio.com/f/fm/1e89298732fbf090aea0812f7fb2af30ad82ab61/pics/fm/landingpage/qr_2@2x.png"
@@ -79,11 +79,12 @@
                             <span><a class="link artist-name" title="isbells"
                                      style="font-size: 15px; font-weight: 400; line-height: 1.2; color: rgb(74, 74, 74);" th:text="${singers[0].getName()}"></a></span>
                         </div>
+                        <div th:replace="share::share"></div>
                         <div
                                 style="position: absolute; bottom: 10px; height: 13px; line-height: 13px; font-size: 11px; font-weight: 400; color: rgb(155, 155, 155); width: 100%;">
                             <div class="volume-and-time"
                                  style="transform: translate3d(0px, 0px, 0px); display: inline-block; color: rgb(155, 155, 155);">
-                                <span class="time"
+                                <span id="time" class="time"
                                       style="color: rgb(155, 155, 155); font-weight: 400; margin-right: 10px; display: inline-block; width: 40px;">-01:11</span><span
                                     class="volume-slider" style="height: 15px; position: relative; top: 3px;"><svg
                                     viewBox="0,0,18,18" height="11" width="15" class="volume-icon"
@@ -161,7 +162,7 @@
                                     </svg>
                                 </label><span style="width: 25px; display: inline-block;"></span><label
                                         title="分享这首歌">
-                                    <svg title="Title" viewBox="0 0 20 20" height="20" width="20"
+                                    <svg title="Title" id="share-icon" viewBox="0 0 20 20" height="20" width="20"
                                          class="icon" style="vertical-align: middle;">
                                         <desc>Icon</desc>
                                         <g id="icon" fill="none" fill-rule="evenodd">
@@ -175,7 +176,7 @@
                                 </label></div>
                             </div>
                         </div>
-                       <!-- <video th:src="@{|${song.getContent().get(0).getUrl()}|}" controls ></video>-->
+                       <video th:src="@{|${song.getContent().get(0).getUrl()}|}" controls autoplay  id="vdo" hidden></video>
                         <div class="_3dc88PzjGniYgbqLSjQQcb playing-progress"
                              style="position: absolute; top: 0px; left: 0px;">
                             <div
@@ -211,7 +212,7 @@
                                 </svg>
                             </label>
                                 <div style="position: absolute; right: 0px; top: 2px;"><label title="暂停">
-                                    <svg
+                                    <svg id="play-icon"
                                             title="Title" viewBox="61 0 22 22" height="22" width="22"
                                             class="icon icon-pause" style="vertical-align: middle;">
                                         <desc>Icon</desc>

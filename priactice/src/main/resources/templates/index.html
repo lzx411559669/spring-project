@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/player.css">
     <link rel="stylesheet" href="/css/explore.css">
-    <link rel="stylesheet" href="/css/collecion.css">
+    <link rel="stylesheet" href="/css/collection.css">
+    <link rel="stylesheet" href="/css/share.css">
+    <script src="/js/qrcode-min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
     <title>豆瓣</title>
 </head>
 
@@ -17,4 +21,62 @@
 <div th:replace="explore::explore"></div>
 <div th:replace="footer::footer"></div>
 </body>
+<script>
+    var bg = document.getElementById("bg");
+    var share = document.getElementById("share");
+    //分享show
+    $(document).ready(function () {
+        $("#share-icon").click(function (){
+            $("#share").show();
+        });
+        //X隐藏
+        $("#close").click(function () {
+            $("#share").hide();
+        });
+    });
+    //点击分享模态框外部隐藏
+   window.onclick=(function (event) {
+        if (event.target===bg) {
+            share.style.display = "none";
+        }
+
+    });
+    //获取video元素
+    var myVideo = document.getElementById('vdo');
+    var playicon = document.getElementById("play-icon");
+    var time = document.getElementById("time");
+    var tol = 0;
+    console.log(myVideo);
+
+    myVideo.addEventListener("loadedmetadata", function(){
+        //要执行的代码
+        tol = myVideo.duration;//获取总时长
+        var currentTime = myVideo.currentTime;//获取当前播放时间
+        var volume = myVideo.volume;//获取当前音量
+
+        console.log(currentTime);
+    });
+
+    //播放
+    function play(){
+        myVideo.play();
+    }
+    playicon.addEventListener("click",pause);
+    //设置音量
+    function setVol(num){
+        myVideo.volume = num;
+    }
+    myVideo.addEventListener("timeupdate", function(){
+        var currentTime = myVideo.currentTime;//获取当前播放时间
+        var second = parseInt(currentTime%60);
+        var min = parseInt(currentTime/60);
+
+       time.innerText = min+":"+second+"s";
+    });
+    //暂停
+    function pause(){
+        myVideo.pause();
+    }
+
+</script>
 </html>

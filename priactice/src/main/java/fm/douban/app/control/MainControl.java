@@ -1,10 +1,8 @@
 package fm.douban.app.control;
 
-import fm.douban.model.MhzViewModel;
-import fm.douban.model.Singer;
-import fm.douban.model.Song;
-import fm.douban.model.Subject;
+import fm.douban.model.*;
 import fm.douban.param.SongQueryParam;
+import fm.douban.service.FavoriteService;
 import fm.douban.service.SingerService;
 import fm.douban.service.SongService;
 import fm.douban.service.SubjectService;
@@ -20,6 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 @Controller
@@ -31,6 +31,8 @@ public class MainControl {
     SingerService singerService;
     @Autowired
     SubjectService subjectService;
+    @Autowired
+    FavoriteService favoriteService;
   //首页
     @GetMapping("/index")
     public String index(Model model) {
@@ -77,9 +79,11 @@ public class MainControl {
     }
     //搜索页
     @GetMapping("/search")
+
     public String search(Model model){
         return "search";
     }
+    //搜索结果
     @CrossOrigin(origins = "*")
     @GetMapping("/searchContent")
     @ResponseBody
@@ -92,5 +96,39 @@ public class MainControl {
        songMap.put("songs",songService.list(songQueryParam));
         return songMap;
     }
-    //搜索结果
+    //我的页面
+    @GetMapping("/my")
+    public String myPage(Model model, HttpServletRequest request, HttpServletResponse response){
+        UserLoginInfo userLoginInfo =(UserLoginInfo) request.getSession().getAttribute("userLogininfo");
+        Favorite favorite = new Favorite();
+        favorite.setItemId("5f05481b066b7e3b7792a839");
+        List<Favorite> favorites = null;
+        favorites = favoriteService.list(favorite);
+        if (favorites == null){
+            favorites = new ArrayList<>();
+        }
+        List<Song> songs = new ArrayList<>();
+        favorites.forEach(favorite1 -> {
+            songs.add(songService.get(favorite1.getItemId()));
+        });
+        model.addAttribute("favorites",favorites);
+        model.addAttribute("songs",songs);
+        return "my";
+    }
+    @GetMapping("/fav")
+    public Map doFav(@RequestParam("itemType")String itemType,@RequestParam("itemId")String itemId,HttpServletRequest request,HttpServletResponse response){
+      Map retrunData = new HashMap();
+        Favorite favorite = new Favorite();
+        favorite.setItemId(itemId);
+        favorite.setItemType(itemType);
+       List<Favorite> favorites = favoriteService.list(favorite);
+       if (favorites.size()>0){
+           favoriteService.delete(favorite);
+           retrunData.put("message","delete successful");
+       }else {
+           favoriteService.add(favorite);
+           retrunData.put("message","add successful");
+       }
+     return retrunData;
+    }
 }
