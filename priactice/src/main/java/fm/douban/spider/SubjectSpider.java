@@ -11,6 +11,8 @@ import fm.douban.util.HttpUtil;
 import fm.douban.util.SubjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -27,18 +29,18 @@ public class SubjectSpider {
     private Map<String, String> header = httpUtil.buildHeaderData("https://fm.douban.com/", "fm.douban.com");
 
     //系统启动的时候自动执行爬取任务
-   // @PostConstruct
+    //@PostConstruct
     public void init() {
         doExcute();
     }
     //开始执行爬取任务
     public void doExcute() {
         //调用爬取主题数据方法
-        /*getSubjectData();
+        getSubjectData();
         //调用爬取歌手歌曲方法
         singerService.getAll().forEach(singer -> {
             getSongDataBySingers(singer);
-        });*/
+        });
         getCollection();
     }
 

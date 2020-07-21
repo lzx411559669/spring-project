@@ -26,7 +26,7 @@ li {
 .wapper .artist-pager .banner .top {
     position: absolute;
     top: 30px;
-    right: 30px;
+    /*right: 30px;*/
 }
 
 .wapper .artist-pager .banner .top a {
@@ -46,7 +46,7 @@ li {
     border-radius: 50%;
     display: inline-block;
     position: absolute;
-    left: 50%;
+    left: 37%;
     top: 30px;
     margin-left: -84px;
 }

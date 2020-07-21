@@ -72,7 +72,7 @@ public class MainControl {
         mhzViewModelList.add(mood);
         mhzViewModelList.add(age);
         mhzViewModelList.add(style);
-        model.addAttribute("artistDatas",artistdatas);
+        model.addAttribute("artistDatas",artistdatas.subList(0,10));
         model.addAttribute("mhzViewModel",mhzViewModelList);
 
         return "index";

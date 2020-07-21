@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout">
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<div th:fragment="my">
+<div th:fragment="content">
 <div class="minepage">
     <div class="section-switcher">
         <div class="section-header">
@@ -81,31 +81,32 @@
     </div>
 
 </div>
+    <script type="text/javascript" th:inline="javascript">
+        let qr = document.getElementById("fr");
+        let img = document.getElementById("img");
+
+        function show() {
+            img.style.display = "block";
+        };
+
+        function dishow() {
+            img.style.display = "none";
+        }
+        qr.addEventListener("mouseenter", show);
+        qr.addEventListener("mouseleave", dishow);
+        $(document).ready(function(){
+            $("#songlistsong").mouseenter(function(){
+                $("#actions").show();
+                console.log("enter");
+            });
+            $("#songlistsong").mouseleave(function(){
+                $("#actions").hide();
+            });
+        });
+
+    </script>
 </div>
 </body>
-<script>
-    let qr = document.getElementById("fr");
-    let img = document.getElementById("img");
 
-    function show() {
-        img.style.display = "block";
-    };
-
-    function dishow() {
-        img.style.display = "none";
-    }
-    qr.addEventListener("mouseenter", show);
-    qr.addEventListener("mouseleave", dishow);
-    $(document).ready(function(){
-        $("#songlistsong").mouseenter(function(){
-            $("#actions").show();
-            console.log("enter");
-        });
-        $("#songlistsong").mouseleave(function(){
-            $("#actions").hide();
-        });
-    });
-
-</script>
 
 </html>

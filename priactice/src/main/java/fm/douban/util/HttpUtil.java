@@ -13,7 +13,7 @@ public class HttpUtil {
     private OkHttpClient okHttpClient;
 
     public HttpUtil() {
-        okHttpClient = new OkHttpClient.Builder().connectTimeout(60,TimeUnit.SECONDS).readTimeout(60,TimeUnit.SECONDS).build();
+        okHttpClient = new OkHttpClient.Builder().build();
     }
 
     //构建http header，也许爬虫有用

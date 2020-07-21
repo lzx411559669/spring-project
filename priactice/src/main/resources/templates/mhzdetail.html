@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout" >
 <head>
     <meta charset="UTF-8">
     <title> - 豆瓣FM</title>
@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div th:fragment="mhzdetail">
+<div th:fragment="content">
 <div class="wapper">
     <div class="artist-pager">
         <div class="banner">
